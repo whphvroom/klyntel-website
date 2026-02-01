@@ -1,0 +1,378 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Klyntel - AI-Native Solutions Foundry</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        :root {
+            /* Color System */
+            --slate-blue-900: #1e293b;
+            --slate-blue-800: #334155;
+            --slate-blue-700: #475569;
+            --slate-blue-600: #64748b;
+            --steel-gray: #94a3b8;
+            --light-gray: #e2e8f0;
+            --bg-off-white: #fafafa;
+            --bg-warm-gray: #f8f8f7;
+
+            /* Typography */
+            --font-heading: 'Space Grotesk', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+            --font-body: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+        }
+
+        body {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--slate-blue-700);
+            background-color: #fafafa;
+            background-image:
+                repeating-linear-gradient(45deg, transparent, transparent 25.46px, rgba(71, 85, 105, 0.05) 25.46px, rgba(71, 85, 105, 0.05) 26.46px),
+                repeating-linear-gradient(-45deg, transparent, transparent 25.46px, rgba(71, 85, 105, 0.05) 25.46px, rgba(71, 85, 105, 0.05) 26.46px);
+            background-size: 36px 36px;
+            line-height: 1.8;
+            font-size: 16px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            position: relative;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Subtle gradient overlay for grid opacity variation */
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: radial-gradient(ellipse at center, rgba(250, 250, 250, 0.3) 0%, transparent 70%);
+            pointer-events: none;
+            z-index: 0;
+        }
+
+        /* Asymmetric Layout Container */
+        .page-layout {
+            display: grid;
+            grid-template-columns: 18% 1fr;
+            min-height: 100vh;
+            position: relative;
+            z-index: 1;
+        }
+
+        /* Left Margin - Technical Notation Area */
+        .left-margin {
+            position: relative;
+            border-right: 1px solid rgba(71, 85, 105, 0.15);
+        }
+
+        /* Technical coordinate markers in left margin */
+        .coordinate-marker {
+            position: fixed;
+            left: 2rem;
+            font-family: 'Inter', monospace;
+            font-size: 9px;
+            color: var(--slate-blue-900);
+            font-weight: 600;
+            letter-spacing: 0.5px;
+        }
+
+        .coordinate-marker:nth-child(1) { top: 3rem; }
+        .coordinate-marker:nth-child(2) { top: 8rem; }
+        .coordinate-marker:nth-child(3) { top: 13rem; }
+        .coordinate-marker:nth-child(4) { top: 18rem; }
+        .coordinate-marker:nth-child(5) { top: 23rem; }
+
+        /* Content Area */
+        .content-area {
+            max-width: 650px;
+            padding: 4rem 3rem 4rem 4rem;
+            position: relative;
+        }
+
+        /* Typography */
+        h1 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--slate-blue-900);
+            font-size: clamp(2.2rem, 4.5vw, 3.5rem);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+
+        h2 {
+            font-family: 'Playfair Display', Georgia, serif;
+            color: var(--slate-blue-900);
+            font-size: clamp(1.75rem, 3.5vw, 2.65rem);
+            font-weight: 600;
+            letter-spacing: -0.01em;
+            line-height: 1.2;
+        }
+
+        /* Header - Asymmetric Left Positioning */
+        header {
+            padding-bottom: 2rem;
+            margin-bottom: 3rem;
+            border-bottom: 1px solid rgba(30, 41, 59, 0.15);
+        }
+
+        .logo {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 1.1rem;
+            font-weight: 700;
+            color: var(--slate-blue-900);
+            text-decoration: none;
+            letter-spacing: 0;
+            display: inline-block;
+        }
+
+        /* Buttons */
+        .btn {
+            display: inline-block;
+            padding: 0.9rem 2.25rem;
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: 0.9rem;
+            font-weight: 600;
+            text-decoration: none;
+            border-radius: 6px;
+            transition: all 0.3s ease;
+            cursor: pointer;
+            border: none;
+        }
+
+        .btn-primary {
+            background-color: var(--slate-blue-900);
+            color: white;
+            border: 1px solid var(--slate-blue-900);
+        }
+
+        .btn-primary:hover {
+            background-color: var(--slate-blue-800);
+            border-color: var(--slate-blue-800);
+        }
+
+        /* Manifesto Section - Continuous Letter Format */
+        .manifesto {
+            padding-bottom: 4rem;
+            margin-bottom: 4rem;
+        }
+
+        .manifesto p {
+            margin-bottom: 1.25rem;
+            font-size: 16px;
+            line-height: 1.8;
+            color: var(--slate-blue-700);
+        }
+
+        .manifesto p strong {
+            font-weight: 600;
+            color: var(--slate-blue-900);
+        }
+
+        .manifesto p.emphasis {
+            font-size: 18px;
+            font-weight: 500;
+            color: var(--slate-blue-800);
+        }
+
+        /* Create visual rhythm with varied spacing between thought groups */
+        .manifesto p:nth-child(4),  /* After "Your data stays yours..." */
+        .manifesto p:nth-child(7),  /* After "No generic tooling..." */
+        .manifesto p:nth-child(11) { /* After "We don't ship demos..." */
+            margin-bottom: 4rem;
+        }
+
+        /* Emphasis paragraphs that start new sections get slightly more top space */
+        .manifesto p.emphasis {
+            margin-top: 0.5rem;
+        }
+
+        /* Inline contact link - embedded in final paragraph */
+        .contact-link {
+            font-family: 'Playfair Display', Georgia, serif;
+            font-size: inherit;
+            color: var(--slate-blue-900);
+            text-decoration: none;
+            border: 1px solid rgba(71, 85, 105, 0.25);
+            padding: 0.2rem 0.5rem;
+            display: inline;
+            transition: all 0.2s ease;
+            white-space: nowrap;
+        }
+
+        .contact-link:hover {
+            border-color: var(--slate-blue-800);
+            background-color: rgba(71, 85, 105, 0.03);
+        }
+
+        /* Add bottom padding to manifesto since footer-cta is gone */
+        .manifesto {
+            padding-bottom: 3rem;
+            margin-bottom: 0;
+        }
+
+        /* Footer - Full Width */
+        footer {
+            grid-column: 1 / -1;
+            background-color: var(--slate-blue-900);
+            color: white;
+            padding: 3rem 2rem;
+            text-align: center;
+        }
+
+        footer p {
+            color: var(--steel-gray);
+            font-size: 0.8rem;
+        }
+
+        /* Responsive Design */
+        @media (max-width: 1024px) {
+            .page-layout {
+                grid-template-columns: 12% 1fr;
+            }
+
+            .content-area {
+                padding: 3rem 2rem 3rem 3rem;
+            }
+
+            .coordinate-marker {
+                left: 1rem;
+                font-size: 8px;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                background-size: 32px 32px;
+            }
+
+            .page-layout {
+                grid-template-columns: 1fr;
+            }
+
+            .left-margin {
+                display: none;
+            }
+
+            .content-area {
+                max-width: 100%;
+                padding: 2rem 1.5rem;
+            }
+
+            .coordinate-marker {
+                display: none;
+            }
+
+            header {
+                margin-bottom: 2.5rem;
+            }
+
+            .manifesto {
+                padding-bottom: 2.5rem;
+                margin-bottom: 0;
+            }
+
+            .manifesto p {
+                font-size: 15px;
+            }
+
+            .manifesto p.emphasis {
+                font-size: 17px;
+            }
+        }
+
+        @media (max-width: 480px) {
+            body {
+                font-size: 14px;
+                background-size: 28px 28px;
+            }
+
+            .content-area {
+                padding: 1.5rem 1.25rem;
+            }
+
+            .btn {
+                padding: 0.8rem 1.8rem;
+                font-size: 0.85rem;
+            }
+
+            .manifesto p {
+                font-size: 14px;
+            }
+
+            .manifesto p.emphasis {
+                font-size: 16px;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Asymmetric Page Layout -->
+    <div class="page-layout">
+        <!-- Left Margin - Technical Notation Area -->
+        <div class="left-margin">
+            <div class="coordinate-marker">A1</div>
+            <div class="coordinate-marker">A2</div>
+            <div class="coordinate-marker">A3</div>
+            <div class="coordinate-marker">A4</div>
+            <div class="coordinate-marker">A5</div>
+        </div>
+
+        <!-- Content Area -->
+        <div class="content-area">
+            <!-- Header -->
+            <header>
+                <a href="#" class="logo">Klyntel</a>
+            </header>
+
+            <!-- Manifesto Section -->
+            <section class="manifesto">
+                <p class="emphasis">Most agencies sell AI wrappers and chatbots. We don't.</p>
+
+                <p><strong>Klyntel is an AI-Native Solutions Foundry.</strong> We engineer deterministic, load-bearing infrastructure that bridges legacy enterprise systems with autonomous execution.</p>
+
+                <p>We build multi-agent systems designed for complex, high-volume operations—logistics, manufacturing, operational triage. Every action follows rigid, auditable business rules. Zero hallucination. Zero guesswork.</p>
+
+                <p>Your data stays yours. We deploy within private environments, ensuring your IP and proprietary information never leave your control.</p>
+
+                <p class="emphasis">We don't start with solutions. We start with your operations.</p>
+
+                <p>Every engagement begins with deep technical discovery—understanding your legacy systems, operational bottlenecks, and the specific workflows that need autonomy.</p>
+
+                <p>From there, we architect deterministic infrastructure designed for your environment. No generic tooling. No off-the-shelf wrappers.</p>
+
+                <p>Every AI action follows rigid, auditable business rules. We decouple reasoning from execution to eliminate hallucination.</p>
+
+                <p>We specialize in integrating the unintegratable—custom bridges into ERPs, CRMs, and legacy systems that weren't built for AI.</p>
+
+                <p>Your infrastructure. Your data. Your control. We build within your environment so your IP never leaves your hands.</p>
+
+                <p>We don't ship demos. We ship load-bearing systems designed to handle operational volume from day one.</p>
+
+                <p class="emphasis">We partner with operations teams that need AI infrastructure built for their specific workflows—not generic tooling.</p>
+
+                <p>Whether you're scaling a mid-market operation or re-architecting enterprise systems, if you're dealing with legacy tech stacks and high-volume processes that need autonomy, <a href="#" class="contact-link" id="contact">Contact us.</a></p>
+            </section>
+        </div>
+
+        <!-- Footer -->
+        <footer>
+            <p>&copy; 2026 Klyntel. All rights reserved.</p>
+        </footer>
+    </div>
+</body>
+</html>
