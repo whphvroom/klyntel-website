@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klyntel</title>
+    <title>Product - Klyntel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
         }
 
         .container {
-            max-width: 420px;
+            max-width: 520px;
             padding: 0 2rem;
             flex: 1;
         }
@@ -124,49 +124,70 @@
             height: 100%;
         }
 
-        .thesis {
+        .content {
             padding-bottom: 2.5rem;
         }
 
-        .thesis p {
-            margin-bottom: 0.5rem;
+        .content h1 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--slate-blue-900);
+            margin-bottom: 2rem;
+            letter-spacing: -0.01em;
+        }
+
+        .content h2 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--slate-blue-900);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            margin-bottom: 0.75rem;
             font-family: 'Lora', serif;
             font-size: 15px;
-            line-height: 1.4;
+            line-height: 1.6;
             color: var(--slate-blue-700);
         }
 
-        /* Emphasis paragraphs - key pivot points */
-        .thesis p.emphasis {
-            margin-top: 1rem;
+        .content ul {
             margin-bottom: 1rem;
+            padding-left: 1.25rem;
+        }
+
+        .content li {
+            font-family: 'Lora', serif;
             font-size: 15px;
-            line-height: 1.4;
-            font-weight: 400;
-            font-style: normal;
+            line-height: 1.6;
             color: var(--slate-blue-700);
+            margin-bottom: 0.5rem;
         }
 
-        /* Section breaks - extra space after key sections */
-        .thesis p.section-break {
-            margin-bottom: 1rem;
-        }
-
-        /* Contact CTA at end of thesis */
-        .thesis p.contact-cta {
+        .cta-section {
             margin-top: 2.5rem;
-            margin-bottom: 0;
-            font-family: 'Inter', -apple-system, sans-serif;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(71, 85, 105, 0.1);
         }
 
-        .thesis p.contact-cta a {
+        .cta-section p {
+            font-family: 'Inter', -apple-system, sans-serif;
+            margin-bottom: 0;
+        }
+
+        .cta-section a {
             color: var(--slate-blue-900);
             text-decoration: none;
             border-bottom: 1px solid var(--slate-blue-700);
             transition: border-color 0.2s ease;
         }
 
-        .thesis p.contact-cta a:hover {
+        .cta-section a:hover {
             border-bottom-color: var(--slate-blue-900);
         }
 
@@ -245,19 +266,18 @@
                 gap: 1.5rem;
             }
 
-            .thesis {
+            .content {
                 padding-bottom: 4rem;
             }
 
-            .thesis p {
-                font-size: 16px;
-                line-height: 1.9;
+            .content h1 {
+                font-size: 1.25rem;
             }
 
-            .thesis p.emphasis {
+            .content p,
+            .content li {
                 font-size: 16px;
-                margin-top: 2.5rem;
-                margin-bottom: 2.5rem;
+                line-height: 1.8;
             }
 
             footer .container {
@@ -295,7 +315,7 @@
             <div class="content-column">
                 <div class="container">
                     <header>
-                        <a href="/" class="logo">
+                        <a href="index.html" class="logo">
                             <div class="logo-mark">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <!-- NAND Gate - Stylized -->
@@ -323,22 +343,42 @@
                         </nav>
                     </header>
 
-                    <main class="thesis">
-                        <p>We believe AI adoption fails not because models aren't powerful enough, but because organizations don't know when to trust them.</p>
+                    <main class="content">
+                        <h1>Decision Integrity Systems</h1>
 
-                        <p class="section-break">The most effective AI systems are not generic. They are domain-specific models, trained and adapted to the real structure, constraints, and dynamics of a business. This is how AI achieves meaningful capability in the enterprise.</p>
+                        <p>Klyntel builds control infrastructure that determines when domain-specific AI models are safe to trust in production environments.</p>
 
-                        <p class="emphasis">But capability alone is not enough.</p>
+                        <h2>What It Is</h2>
+                        <p>A runtime integrity layer that sits between your domain-specific AI models and production systems. It continuously evaluates model reliability, surfaces uncertainty, and gates actions when trust degrades.</p>
 
-                        <p class="section-break">As conditions change, assumptions silently decay: correlations break, regimes shift, and uncertainty grows. Yet decisions continue as if nothing happened. Today's AI stack offers no system that determines whether domain-specific intelligence is still safe to rely on.</p>
+                        <h2>How It Works</h2>
+                        <p>Decision integrity systems monitor the gap between what your model assumes and what your environment actually looks like. When distributions shift, correlations break, or uncertainty grows beyond acceptable thresholds, the system intervenes.</p>
 
-                        <p class="emphasis">Our belief is that AI can only be adopted when capability and integrity are built together.</p>
+                        <p>Core capabilities include:</p>
+                        <ul>
+                            <li>Real-time domain drift detection using business-relevant metrics</li>
+                            <li>Uncertainty quantification grounded in operational context</li>
+                            <li>Automated decision gating based on configurable risk thresholds</li>
+                            <li>Observability into model trust states and intervention events</li>
+                        </ul>
 
-                        <p>We are building decision integrity systems — domain-grounded control layers that continuously evaluate whether AI-driven actions are reliable, explicitly surface uncertainty, and gate behavior when trust breaks.</p>
+                        <h2>Integration</h2>
+                        <p>Deploys as a lightweight service layer. Integrates with existing ML infrastructure through standard APIs. Compatible with any model framework or serving platform.</p>
 
-                        <p>This is how AI moves from pilots and demos into real, accountable use.</p>
+                        <h2>Use Cases</h2>
+                        <p>Built for organizations running domain-specific models in critical workflows:</p>
+                        <ul>
+                            <li>Dynamic pricing and revenue optimization</li>
+                            <li>Recommendation and personalization systems</li>
+                            <li>Automated underwriting and risk assessment</li>
+                            <li>Supply chain and demand forecasting</li>
+                            <li>Fraud detection and anomaly monitoring</li>
+                        </ul>
 
-                        <p class="contact-cta">Interested in deploying domain-specific AI with decision integrity? Reach out at <a href="mailto:contact@klyntel.com">contact@klyntel.com</a></p>
+                        <div class="cta-section">
+                            <p><strong>Early Access Program</strong></p>
+                            <p>We're working with a select group of design partners to deploy decision integrity systems in production. If you're running domain-specific AI models in critical workflows, <a href="contact.html">let's talk</a>.</p>
+                        </div>
                     </main>
                 </div>
 

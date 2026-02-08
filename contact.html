@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Klyntel</title>
+    <title>Contact - Klyntel</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
@@ -66,7 +66,7 @@
         }
 
         .container {
-            max-width: 420px;
+            max-width: 480px;
             padding: 0 2rem;
             flex: 1;
         }
@@ -124,49 +124,96 @@
             height: 100%;
         }
 
-        .thesis {
+        .content {
             padding-bottom: 2.5rem;
         }
 
-        .thesis p {
-            margin-bottom: 0.5rem;
+        .content h1 {
+            font-family: 'Lora', serif;
+            font-size: 1.5rem;
+            font-weight: 500;
+            color: var(--slate-blue-900);
+            margin-bottom: 1rem;
+            letter-spacing: 0;
+        }
+
+        .content p {
+            margin-bottom: 2rem;
             font-family: 'Lora', serif;
             font-size: 15px;
-            line-height: 1.4;
+            line-height: 1.6;
             color: var(--slate-blue-700);
         }
 
-        /* Emphasis paragraphs - key pivot points */
-        .thesis p.emphasis {
-            margin-top: 1rem;
-            margin-bottom: 1rem;
-            font-size: 15px;
-            line-height: 1.4;
-            font-weight: 400;
-            font-style: normal;
-            color: var(--slate-blue-700);
+        form {
+            display: flex;
+            flex-direction: column;
+            gap: 1.75rem;
         }
 
-        /* Section breaks - extra space after key sections */
-        .thesis p.section-break {
-            margin-bottom: 1rem;
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 1.5rem;
         }
 
-        /* Contact CTA at end of thesis */
-        .thesis p.contact-cta {
-            margin-top: 2.5rem;
-            margin-bottom: 0;
+        .form-group {
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        label {
             font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.75rem;
+            font-weight: 500;
+            color: var(--steel-gray);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
         }
 
-        .thesis p.contact-cta a {
+        input,
+        textarea {
+            font-family: 'Lora', serif;
+            font-size: 15px;
+            padding: 0.5rem 0;
+            border: none;
+            border-bottom: 1px solid rgba(71, 85, 105, 0.2);
+            background-color: transparent;
             color: var(--slate-blue-900);
-            text-decoration: none;
-            border-bottom: 1px solid var(--slate-blue-700);
             transition: border-color 0.2s ease;
+            line-height: 1.5;
         }
 
-        .thesis p.contact-cta a:hover {
+        input:focus,
+        textarea:focus {
+            outline: none;
+            border-bottom-color: var(--slate-blue-700);
+        }
+
+        textarea {
+            resize: vertical;
+            min-height: 100px;
+            line-height: 1.6;
+        }
+
+        button {
+            font-family: 'Lora', serif;
+            font-size: 15px;
+            font-weight: 400;
+            padding: 0;
+            background: none;
+            color: var(--slate-blue-900);
+            border: none;
+            border-bottom: 1px solid var(--slate-blue-700);
+            cursor: pointer;
+            letter-spacing: 0;
+            transition: border-color 0.2s ease;
+            align-self: flex-start;
+            margin-top: 1rem;
+        }
+
+        button:hover {
             border-bottom-color: var(--slate-blue-900);
         }
 
@@ -245,19 +292,16 @@
                 gap: 1.5rem;
             }
 
-            .thesis {
+            .content {
                 padding-bottom: 4rem;
             }
 
-            .thesis p {
-                font-size: 16px;
-                line-height: 1.9;
+            .content h1 {
+                font-size: 1.25rem;
             }
 
-            .thesis p.emphasis {
-                font-size: 16px;
-                margin-top: 2.5rem;
-                margin-bottom: 2.5rem;
+            .form-row {
+                grid-template-columns: 1fr;
             }
 
             footer .container {
@@ -288,14 +332,14 @@
         <div class="main-content">
             <!-- Left: City Roads Visualization -->
             <div class="city-visual">
-                <img src="San Jose.svg" alt="San Jose Road Network">
+                <img src="San Francisco.svg" alt="San Francisco Road Network">
             </div>
 
             <!-- Right: Content -->
             <div class="content-column">
                 <div class="container">
                     <header>
-                        <a href="/" class="logo">
+                        <a href="index.html" class="logo">
                             <div class="logo-mark">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
                                     <!-- NAND Gate - Stylized -->
@@ -323,22 +367,39 @@
                         </nav>
                     </header>
 
-                    <main class="thesis">
-                        <p>We believe AI adoption fails not because models aren't powerful enough, but because organizations don't know when to trust them.</p>
+                    <main class="content">
+                        <h1>Get in Touch</h1>
+                        <p>Interested in deploying decision integrity systems for your domain-specific AI? Tell us about your use case.</p>
 
-                        <p class="section-break">The most effective AI systems are not generic. They are domain-specific models, trained and adapted to the real structure, constraints, and dynamics of a business. This is how AI achieves meaningful capability in the enterprise.</p>
+                        <form action="#" method="POST">
+                            <div class="form-row">
+                                <div class="form-group">
+                                    <label for="firstName">First Name</label>
+                                    <input type="text" id="firstName" name="firstName" required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="lastName">Last Name</label>
+                                    <input type="text" id="lastName" name="lastName" required>
+                                </div>
+                            </div>
 
-                        <p class="emphasis">But capability alone is not enough.</p>
+                            <div class="form-group">
+                                <label for="company">Company</label>
+                                <input type="text" id="company" name="company" required>
+                            </div>
 
-                        <p class="section-break">As conditions change, assumptions silently decay: correlations break, regimes shift, and uncertainty grows. Yet decisions continue as if nothing happened. Today's AI stack offers no system that determines whether domain-specific intelligence is still safe to rely on.</p>
+                            <div class="form-group">
+                                <label for="email">Email</label>
+                                <input type="email" id="email" name="email" required>
+                            </div>
 
-                        <p class="emphasis">Our belief is that AI can only be adopted when capability and integrity are built together.</p>
+                            <div class="form-group">
+                                <label for="details">What would you like Klyntel to help you solve?</label>
+                                <textarea id="details" name="details" required></textarea>
+                            </div>
 
-                        <p>We are building decision integrity systems — domain-grounded control layers that continuously evaluate whether AI-driven actions are reliable, explicitly surface uncertainty, and gate behavior when trust breaks.</p>
-
-                        <p>This is how AI moves from pilots and demos into real, accountable use.</p>
-
-                        <p class="contact-cta">Interested in deploying domain-specific AI with decision integrity? Reach out at <a href="mailto:contact@klyntel.com">contact@klyntel.com</a></p>
+                            <button type="submit">Send Message</button>
+                        </form>
                     </main>
                 </div>
 
