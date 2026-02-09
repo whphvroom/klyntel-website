@@ -53,11 +53,23 @@
         }
 
         .city-visual img {
-            width: 100%;
+            position: absolute;
+            width: 60%;
             height: 100%;
             object-fit: cover;
             opacity: 0.20;
             filter: grayscale(100%);
+        }
+
+        .city-visual img:first-child {
+            top: 0;
+            left: 0;
+            width: 100%;
+        }
+
+        .city-visual img:last-child {
+            top: 0;
+            right: -30%;
         }
 
         .content-column {
@@ -119,7 +131,8 @@
             justify-content: center;
         }
 
-        .logo-mark svg {
+        .logo-mark svg,
+        .logo-mark img {
             width: 100%;
             height: 100%;
         }
@@ -190,7 +203,7 @@
 
         footer .links {
             display: flex;
-            gap: 1.5rem;
+            gap: 1rem;
         }
 
         footer a {
@@ -289,6 +302,7 @@
             <!-- Left: City Roads Visualization -->
             <div class="city-visual">
                 <img src="San Jose.svg" alt="San Jose Road Network">
+                <img src="Half Moon Bay.svg" alt="Half Moon Bay Road Network">
             </div>
 
             <!-- Right: Content -->
@@ -298,27 +312,26 @@
                         <a href="/" class="logo">
                             <div class="logo-mark">
                                 <svg viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <!-- NAND Gate - Stylized -->
-                                    <!-- Input lines -->
-                                    <line x1="2" y1="10" x2="6" y2="10" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                    <line x1="2" y1="14" x2="6" y2="14" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
-                                    <!-- Gate body (D-shape with smooth curve) -->
-                                    <path d="M6 8 L6 16 L10 16 Q 16 16 16 12 Q 16 8 10 8 Z"
-                                          stroke="currentColor"
-                                          stroke-width="1.5"
-                                          fill="none"
-                                          stroke-linejoin="miter"/>
-                                    <!-- Output bubble (filled for contrast) -->
-                                    <circle cx="18" cy="12" r="1.2"
-                                            fill="currentColor"/>
-                                    <!-- Output line -->
-                                    <line x1="19.2" y1="12" x2="22" y2="12" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"/>
+                                    <!-- Paifang Gate - Minimal -->
+                                    <!-- Left pillar -->
+                                    <line x1="8" y1="9" x2="8" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+                                    <!-- Right pillar -->
+                                    <line x1="16" y1="9" x2="16" y2="20" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+                                    <!-- Horizontal beam -->
+                                    <line x1="6.5" y1="9" x2="17.5" y2="9" stroke="currentColor" stroke-width="1.5" stroke-linecap="square"/>
+                                    <!-- Upper roof tier - smaller, with upturned ends -->
+                                    <path d="M 6 6.5 L 6.5 6 Q 9 4.5, 12 3.5 Q 15 4.5, 17.5 6 L 18 6.5"
+                                          stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
+                                    <!-- Lower roof tier - wider, with upturned ends -->
+                                    <path d="M 3.5 8.5 L 4.5 7.8 Q 8 6.5, 12 6 Q 16 6.5, 19.5 7.8 L 20.5 8.5"
+                                          stroke="currentColor" stroke-width="1.5" fill="none" stroke-linejoin="round"/>
                                 </svg>
                             </div>
                             <span>Klyntel</span>
                         </a>
                         <nav class="main-nav">
                             <a href="product.html">Product</a>
+                            <a href="news.html">Updates</a>
                             <a href="contact.html">Contact</a>
                         </nav>
                     </header>
@@ -330,23 +343,24 @@
 
                         <p class="emphasis">But capability alone is not enough.</p>
 
-                        <p class="section-break">As conditions change, assumptions silently decay: correlations break, regimes shift, and uncertainty grows. Yet decisions continue as if nothing happened. Today's AI stack offers no system that determines whether domain-specific intelligence is still safe to rely on.</p>
+                        <p class="section-break">As conditions change, assumptions silently decay: correlations break, regimes shift, and uncertainty grows. Yet decisions continue as if nothing happened. Today's AI stack offers no robust system that determines whether any intelligence is still safe to rely on.</p>
 
                         <p class="emphasis">Our belief is that AI can only be adopted when capability and integrity are built together.</p>
 
-                        <p>We are building decision integrity systems — domain-grounded control layers that continuously evaluate whether AI-driven actions are reliable, explicitly surface uncertainty, and gate behavior when trust breaks.</p>
+                        <p>We are building decision integrity systems: domain-grounded control layers that continuously evaluate whether AI-driven actions are reliable, explicitly surface uncertainty, and gate behavior when trust breaks.</p>
 
                         <p>This is how AI moves from pilots and demos into real, accountable use.</p>
 
-                        <p class="contact-cta">Interested in deploying domain-specific AI with decision integrity? Reach out at <a href="mailto:contact@klyntel.com">contact@klyntel.com</a></p>
+                        <p class="contact-cta">Interested in deploying domain-specific AI with decision integrity? Reach out to <a href="contact.html">us</a></p>
                     </main>
                 </div>
 
                 <footer>
                     <div class="container">
-                        <p>&copy; 2026 Klyntel</p>
+                        <p>&copy; 2026 Klyntel Inc.</p>
                         <div class="links">
-                            <a href="mailto:contact@klyntel.com">contact@klyntel.com</a>
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
                             <a href="https://linkedin.com/company/klyntel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
                         </div>
                     </div>
