@@ -1,0 +1,441 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Privacy Policy - Klyntel</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Lora:wght@400;500;600;700&display=swap" rel="stylesheet">
+
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        :root {
+            --slate-blue-900: #1e293b;
+            --slate-blue-800: #334155;
+            --slate-blue-700: #475569;
+            --steel-gray: #94a3b8;
+        }
+
+        body {
+            font-family: 'Inter', -apple-system, sans-serif;
+            color: var(--slate-blue-700);
+            background-color: #fafafa;
+            line-height: 2;
+            font-size: 17px;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            margin: 0;
+            padding: 0;
+        }
+
+        .page-wrapper {
+            display: flex;
+            min-height: 100vh;
+            flex-direction: column;
+        }
+
+        .main-content {
+            display: grid;
+            grid-template-columns: 50% 50%;
+            flex: 1;
+        }
+
+        .city-visual {
+            position: relative;
+            overflow: hidden;
+            background-color: #fafafa;
+        }
+
+        .city-visual img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.20;
+            filter: grayscale(100%);
+        }
+
+        .content-column {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .container {
+            max-width: 520px;
+            padding: 0 2rem;
+            flex: 1;
+        }
+
+        header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 3rem;
+            padding: 2rem 0 3.5rem;
+            max-width: 600px;
+        }
+
+        .main-nav {
+            display: flex;
+            gap: 2rem;
+        }
+
+        .main-nav a {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.875rem;
+            color: var(--slate-blue-700);
+            text-decoration: none;
+            letter-spacing: 0.025em;
+            transition: color 0.2s ease;
+        }
+
+        .main-nav a:hover {
+            color: var(--slate-blue-900);
+        }
+
+        .logo {
+            display: flex;
+            align-items: center;
+            gap: 0.75rem;
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--slate-blue-900);
+            text-decoration: none;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+        }
+
+        .logo-mark {
+            width: 54px;
+            height: 36px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .logo-mark svg,
+        .logo-mark img {
+            width: 100%;
+            height: 100%;
+        }
+
+        .content {
+            padding-bottom: 2.5rem;
+        }
+
+        .content h1 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 1.5rem;
+            font-weight: 600;
+            color: var(--slate-blue-900);
+            margin-bottom: 1.5rem;
+            letter-spacing: -0.01em;
+        }
+
+        .content h2 {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--slate-blue-900);
+            margin-top: 2rem;
+            margin-bottom: 0.75rem;
+            letter-spacing: 0.025em;
+            text-transform: uppercase;
+        }
+
+        .content p {
+            margin-bottom: 0.75rem;
+            font-family: 'Lora', serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--slate-blue-700);
+        }
+
+        .content ul {
+            margin-bottom: 1rem;
+            padding-left: 1.25rem;
+        }
+
+        .content li {
+            font-family: 'Lora', serif;
+            font-size: 15px;
+            line-height: 1.6;
+            color: var(--slate-blue-700);
+            margin-bottom: 0.5rem;
+        }
+
+        .last-updated {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.75rem;
+            color: var(--steel-gray);
+            margin-bottom: 2rem;
+        }
+
+        footer {
+            border-top: 1px solid rgba(71, 85, 105, 0.1);
+            padding: 1.5rem 0;
+            margin-top: auto;
+        }
+
+        footer .container {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+
+        footer p {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.8rem;
+            color: var(--steel-gray);
+        }
+
+        footer .links {
+            display: flex;
+            gap: 1rem;
+        }
+
+        footer a {
+            font-family: 'Inter', -apple-system, sans-serif;
+            font-size: 0.8rem;
+            color: var(--slate-blue-700);
+            text-decoration: none;
+            transition: color 0.2s ease;
+        }
+
+        footer a:hover {
+            color: var(--slate-blue-900);
+        }
+
+        /* Responsive */
+        @media (max-width: 1024px) {
+            .main-content {
+                grid-template-columns: 45% 55%;
+            }
+
+            .container {
+                padding: 0 2rem 0 3rem;
+            }
+        }
+
+        @media (max-width: 768px) {
+            body {
+                font-size: 16px;
+                line-height: 1.9;
+            }
+
+            .main-content {
+                grid-template-columns: 1fr;
+            }
+
+            .city-visual {
+                display: none;
+            }
+
+            .container {
+                max-width: 100%;
+                padding: 0 1.5rem;
+            }
+
+            header {
+                flex-direction: column;
+                gap: 1.5rem;
+                padding: 2.5rem 0 3rem;
+            }
+
+            .main-nav {
+                gap: 1.5rem;
+            }
+
+            .content {
+                padding-bottom: 4rem;
+            }
+
+            .content h1 {
+                font-size: 1.25rem;
+            }
+
+            .content p,
+            .content li {
+                font-size: 16px;
+                line-height: 1.8;
+            }
+
+            footer .container {
+                flex-direction: column;
+                gap: 0.5rem;
+                text-align: center;
+            }
+
+            footer .links {
+                flex-direction: column;
+                gap: 0.5rem;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .container {
+                padding: 0 1.25rem;
+            }
+
+            header {
+                padding: 2rem 0 2.5rem;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="page-wrapper">
+        <div class="main-content">
+            <!-- Left: City Roads Visualization -->
+            <div class="city-visual">
+                <img src="Los Angeles.svg" alt="Los Angeles Road Network">
+            </div>
+
+            <!-- Right: Content -->
+            <div class="content-column">
+                <div class="container">
+                    <header>
+                        <a href="index.html" class="logo">
+                            <div class="logo-mark">
+                                <svg viewBox="0 0 1024 672" xmlns="http://www.w3.org/2000/svg">
+                                    <path fill="currentColor" opacity="1.000000" stroke="none"
+                                        d="
+                                    M661.027466,307.715820
+                                        C669.074707,308.151184 676.307190,306.138885 683.545471,304.355530
+                                        C684.830383,309.965790 682.055298,315.623688 676.964600,317.238647
+                                        C660.066711,322.599274 628.229309,318.409302 615.921753,299.424561
+                                        C614.363220,297.020477 612.732300,296.302979 609.736755,296.823273
+                                        C569.058533,303.888672 528.010986,305.391754 486.858429,303.965179
+                                        C463.093903,303.141388 439.388397,301.019073 415.930939,296.840057
+                                        C413.721924,296.446503 412.164490,296.529633 410.822296,298.601898
+                                        C401.253815,313.374725 386.240997,317.580109 370.051361,319.179138
+                                        C364.090302,319.767914 358.069916,319.464752 352.152802,318.206604
+                                        C345.392181,316.769043 341.719788,311.890869 342.283264,304.754364
+                                        C345.140045,304.409332 347.740112,305.728333 350.433685,306.276672
+                                        C364.212830,309.081757 377.586273,308.355438 390.289398,301.819641
+                                        C398.230896,297.733765 403.359680,291.559906 403.730896,282.288422
+                                        C403.904205,277.960022 406.740509,277.880066 409.908844,277.615753
+                                        C413.222015,277.339294 415.549072,277.786377 415.362091,281.882751
+                                        C415.229340,284.791321 417.371796,285.295502 419.649506,285.686523
+                                        C436.717285,288.616516 453.930023,290.458344 471.184784,291.527618
+                                        C487.461151,292.536285 503.781738,292.991730 520.113708,292.737213
+                                        C549.096069,292.285522 577.942810,290.365112 606.587463,285.749817
+                                        C609.416138,285.294067 610.730408,284.193329 610.776672,281.323669
+                                        C610.840820,277.345032 613.762878,277.555115 616.494934,277.722626
+                                        C619.095947,277.882141 622.093628,277.461975 622.295410,281.473969
+                                        C622.896240,293.421600 630.228394,299.995789 640.567627,304.032104
+                                        C646.974792,306.533447 653.610229,308.013184 661.027466,307.715820
+                                    z"/>
+                                    <path fill="currentColor" opacity="1.000000" stroke="none"
+                                        d="
+                                    M598.186584,235.384918
+                                        C582.015991,239.162720 565.944580,240.689423 549.879028,242.190521
+                                        C536.763794,243.415939 523.600220,243.361053 510.437775,243.354309
+                                        C481.557526,243.339478 452.924652,240.950302 424.702576,234.611557
+                                        C421.525116,233.897888 419.890259,235.084091 418.071716,237.469406
+                                        C408.409760,250.142670 395.012115,255.071564 379.590820,255.003860
+                                        C371.895966,254.970093 368.841187,251.435867 368.288422,243.421371
+                                        C370.017578,242.256531 371.797791,243.009735 373.581940,243.272369
+                                        C382.596375,244.599258 391.174011,243.209488 399.232056,238.937592
+                                        C406.440125,235.116302 411.005859,229.319260 412.340546,221.125885
+                                        C412.669525,219.106201 412.493469,216.334595 415.780884,216.785583
+                                        C418.609009,217.173569 422.551910,215.278152 423.606964,219.921890
+                                        C424.208923,222.571304 426.138336,223.140213 428.326660,223.636002
+                                        C444.428009,227.283859 460.770996,229.268158 477.191864,230.658539
+                                        C494.811401,232.150375 512.476868,232.152206 530.128784,231.644699
+                                        C552.955750,230.988403 575.595337,228.505905 597.922546,223.560013
+                                        C599.990479,223.101944 601.962524,222.684708 602.751587,219.968124
+                                        C604.020691,215.599289 608.177124,216.960815 611.199585,216.672607
+                                        C614.500488,216.357849 613.942810,219.453857 614.144836,221.401749
+                                        C615.074524,230.368500 620.721375,235.741058 628.119507,239.562958
+                                        C635.734558,243.496902 643.943604,244.506393 652.416687,243.293060
+                                        C654.204407,243.037079 655.986389,242.333694 657.728943,243.407562
+                                        C657.647400,250.474533 654.624756,254.587692 648.068420,254.846466
+                                        C632.865356,255.446533 619.198853,251.232895 609.408936,238.972778
+                                        C606.134094,234.871658 603.294067,233.353775 598.186584,235.384918
+                                    z"/>
+                                    <path fill="currentColor" opacity="1.000000" stroke="none"
+                                        d="
+                                    M618.694458,462.794983
+                                        C618.692810,421.530457 618.686340,380.743774 618.700562,339.957092
+                                        C618.702759,333.672791 621.700378,331.555054 627.823242,333.218964
+                                        C629.892090,333.781189 630.330200,335.080383 630.315613,336.910797
+                                        C630.286499,340.573029 630.308533,344.235657 630.309021,347.898102
+                                        C630.313721,386.187653 630.333130,424.477203 630.281128,462.766663
+                                        C630.278442,464.754547 631.277710,467.433624 628.474060,468.401581
+                                        C625.757874,469.339417 622.805786,469.344727 620.159485,468.194824
+                                        C618.078308,467.290436 618.908447,465.012634 618.694458,462.794983
+                                    z"/>
+                                    <path fill="currentColor" opacity="1.000000" stroke="none"
+                                        d="
+                                    M395.732697,464.549561
+                                        C395.715790,422.817780 395.708130,381.538269 395.712463,340.258728
+                                        C395.713074,334.376801 400.418549,331.317078 405.749878,333.616669
+                                        C407.372955,334.316803 407.263977,335.659027 407.286804,336.948242
+                                        C407.348633,340.442749 407.335388,343.938690 407.335388,347.434082
+                                        C407.335571,386.050446 407.345947,424.666809 407.293945,463.283081
+                                        C407.291107,465.390594 408.168549,468.768433 404.461365,468.332428
+                                        C401.440155,467.977081 396.670532,471.104462 395.732697,464.549561
+                                    z"/>
+                                </svg>
+                            </div>
+                            <span>Klyntel</span>
+                        </a>
+                        <nav class="main-nav">
+                            <a href="product.html">Product</a>
+                            <a href="news.html">Updates</a>
+                            <a href="contact.html">Contact</a>
+                        </nav>
+                    </header>
+
+                    <main class="content">
+                        <h1>Privacy Policy</h1>
+                        <p class="last-updated">Last updated: February 8, 2026</p>
+
+                        <h2>Information We Collect</h2>
+                        <p>When you use our services or contact us, we may collect information including your name, email address, company details, and information about your use case for decision integrity systems.</p>
+
+                        <h2>How We Use Your Information</h2>
+                        <p>We use the information we collect to:</p>
+                        <ul>
+                            <li>Respond to your inquiries and provide customer support</li>
+                            <li>Improve our products and services</li>
+                            <li>Send you updates about our products (with your consent)</li>
+                            <li>Comply with legal obligations</li>
+                        </ul>
+
+                        <h2>Data Security</h2>
+                        <p>We implement appropriate technical and organizational measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+
+                        <h2>Data Sharing</h2>
+                        <p>We do not sell your personal information. We may share your information with service providers who assist us in operating our business, subject to confidentiality obligations.</p>
+
+                        <h2>Your Rights</h2>
+                        <p>You have the right to access, correct, or delete your personal information. You may also object to or restrict certain processing of your data. To exercise these rights, contact us at the email below.</p>
+
+                        <h2>Contact</h2>
+                        <p>For questions about this Privacy Policy or our data practices, contact us at contact@klyntel.com.</p>
+                    </main>
+                </div>
+
+                <footer>
+                    <div class="container">
+                        <p>&copy; 2026 Klyntel Inc.</p>
+                        <div class="links">
+                            <a href="privacy.html">Privacy Policy</a>
+                            <a href="terms.html">Terms of Service</a>
+                            <a href="https://linkedin.com/company/klyntel" target="_blank" rel="noopener noreferrer">LinkedIn</a>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+    </div>
+</body>
+</html>
